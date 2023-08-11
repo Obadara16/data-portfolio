@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { CSSTransition } from 'react-transition-group';
 import videoSource from "../assets/project.mp4"
+import CV from '../assets/cv.pdf'
+
 
 const Project= ({ experienceData }) => {
   const [activeTabId, setActiveTabId] = useState(0);
@@ -41,10 +43,11 @@ const Project= ({ experienceData }) => {
           onKeyDown={(e) => onKeyDown(e)}
           aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
         >
-      <h2 className="numbered-heading ml-4">Team Project Video</h2>
+      <h2 className="numbered-heading ml-4">Portfolio</h2>
           
         </div>
-          <div className="relative ml-4 flex justify-center items-center bg-gray-100 shdow-xl p-2" aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1800">
+        <div className='flex flex-col gap-12'>
+        <div className="relative flex items-center bg-gray-100 shdow-xl p-2" aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1800">
           <video
             controls
             className="w-full  h-full"
@@ -52,7 +55,11 @@ const Project= ({ experienceData }) => {
             <source src={videoSource} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          </div>
+        <a href={CV} download className='btn'>Download Deck</a>
+
         </div>
+          
       </div>
     </section>
   );
