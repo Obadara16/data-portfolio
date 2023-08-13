@@ -34,19 +34,8 @@ const Project= ({ experienceData }) => {
 
   return (
     <section id="experience" ref={revealContainer} className="w-10/12  mx-auto" >
-
-      <div className="grid grid-cols-1 md:grid-cols-2 py-12">
-        <div
-          className="relative flex flex-col justify-center z-3 mb-4 md:mb-0 md:h-[320px] overflow-x-auto flex-shrink-0 p-0 m-0 list-none"
-          role="tablist"
-          aria-label="Experience tabs"
-          onKeyDown={(e) => onKeyDown(e)}
-          aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
-        >
-      <h2 className="numbered-heading ml-4">Portfolio</h2>
-          
-        </div>
-        <div className='flex flex-col gap-12'>
+        <div className='w-1/2 mx-auto flex flex-col gap-12'>
+      <h2 className="numbered-heading ml-4 text-center">Portfolio</h2>
         <div className="relative flex items-center bg-gray-100 shdow-xl p-2" aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1800">
           <video
             controls
@@ -56,11 +45,10 @@ const Project= ({ experienceData }) => {
             Your browser does not support the video tag.
           </video>
           </div>
-        <a href={CV} download className='btn'>Download Deck</a>
+        <a href={CV} open className='btn'>Open Deck</a>
 
         </div>
           
-      </div>
     </section>
   );
 };
