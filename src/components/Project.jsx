@@ -45,7 +45,7 @@ const Project= ({ experienceData }) => {
             Your browser does not support the video tag.
           </video>
           </div>
-        <a href={CV} open className='btn'>Open Deck</a>
+        <a href="https://docs.google.com/presentation/d/1o-zdKiKCQcxCEOIUKqicMMYtACMkmfOvwZK04yi0u60/edit?usp=drivesdk" open className='btn'>Open Deck</a>
 
         </div>
           
