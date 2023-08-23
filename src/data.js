@@ -5,6 +5,7 @@ import IMG4 from "./assets/portfolio.png";
 import IMG5 from "./assets/portfolio3.png";
 import IMG6 from "./assets/bti.png";
 import IMG7 from "./assets/fundtrack.png";
+import pitch from "./assets/pitch.mp4"
 
 
 export const data = [
@@ -81,17 +82,17 @@ export const content = [
       'Roqeeb has developed a full-stack e-commerce platform, boosting online sales by 30%, and optimized resource allocation, reducing costs by 20% for a logistics company.',
       'He aims to become a proficient Data Scientist and Full Stack Developer, contributing to "Stevics Payment" and driving innovation through data-driven insights.',
     ],
+    
   },
   {
     title: "Elevator Pitch",
     description: [
-      "Hello, I'm Roqeeb Obadara, a data science student from the University of Ibadan, Nigeria, and a skilled full-stack developer proficient in Node.js, React, Express, and MongoDB.",
-      "At ALX, I'm honing my data science skills and analytical prowess.",
-      "I create dynamic web apps using modern tools like React and Node.js, blending data science and full-stack skills to deliver insights and seamless user experiences.",
-      "Excited to contribute to impactful projects and bring innovation through continuous learning.",
+      
     ],
+    videoSource: pitch, // Add your video URL here
   },
 ];
+
 
 
 export const srConfig = (delay = 200, viewFactor = 0.25) => ({

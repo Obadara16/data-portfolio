@@ -1,11 +1,10 @@
 import Aos from 'aos';
 import React, { useState, useEffect, useRef } from 'react';
-import { FaPlay } from 'react-icons/fa';
+import ReactPlayer from 'react-player';
 import { CSSTransition } from 'react-transition-group';
 
 const Contents = ({ contentData }) => {
   const [activeTabId, setActiveTabId] = useState(0);
-  const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
   const revealContainer = useRef(null);
 
@@ -19,28 +18,21 @@ const Contents = ({ contentData }) => {
     });
   }, []);
 
-  const focusTab = () => {
-    // Code for focusing tab goes here
-  };
-
-  useEffect(() => focusTab(), [tabFocus]);
-
   const onKeyDown = (e) => {
     // Code for handling arrow key navigation goes here
   };
 
   return (
-    <section id="content" ref={revealContainer} className="w-10/12  mx-auto" >
-
+    <section id="content" ref={revealContainer} className="w-10/12 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div
-          className="relative flex flex-col  z-3  mb-6 md:mb-0 md:h-[300px] overflow-x-auto flex-shrink-0 p-0 m-0 list-none"
+          className="relative flex flex-col z-3 mb-6 md:mb-0 md:h-[300px] overflow-x-auto flex-shrink-0 p-0 m-0 list-none"
           role="tablist"
           aria-label="Experience tabs"
           onKeyDown={(e) => onKeyDown(e)}
           aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
         >
-      <h2 className="numbered-heading ml-4">More About Me</h2>
+          <h2 className="numbered-heading ml-4">More About Me</h2>
           {contentData &&
             contentData.map((content, i) => {
               const { title } = content;
@@ -70,7 +62,7 @@ const Contents = ({ contentData }) => {
         <div className="relative ml-4" aos-init aos-animate data-aos="fade-up" data-aos-duration="1200" data-aos-delay="1800">
           {contentData &&
             contentData.map((content, i) => {
-              const {  description, title } = content;
+              const { description, title, videoSource } = content;
 
               return (
                 <CSSTransition
@@ -89,11 +81,9 @@ const Contents = ({ contentData }) => {
                     hidden={activeTabId !== i}
                     className="p-2"
                   >
-                    {/* <h3 className="mb-2 text-xl font-semibold">
+                    <h3 className="mb-2 text-xl font-semibold">
                       <span>{title}</span>
-                    </h3> */}
-
-
+                    </h3>
                     <ul className="mb-8 list-disc list-inside">
                       {description.map((item, index) => (
                         <li key={index} className="flex items-start mb-6">
@@ -101,6 +91,17 @@ const Contents = ({ contentData }) => {
                         </li>
                       ))}
                     </ul>
+
+                    {/* Conditionally render the video player if videoSource is present */}
+                    {videoSource && (
+                      <ReactPlayer
+                        url={videoSource}
+                        controls={true}
+                        width="100%"
+                        height="100%"
+                        playing={false}
+                      />
+                    )}
                   </div>
                 </CSSTransition>
               );
